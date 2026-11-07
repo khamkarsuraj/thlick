@@ -278,6 +278,16 @@ scripts/package_dmg.sh --app path/to/thlick.app --notary-profile thlick
 
 Without a `--notary-profile` or `--notary-key` the script only signs the DMG, which is enough to check the image locally.
 
+### Mac App Store
+
+The `thlick App Store` scheme builds the same app with `APP_STORE` defined; the App Store, not Sparkle, delivers its updates (#81). To make a build for App Store Connect, run:
+
+```
+scripts/archive_appstore.sh
+```
+
+It archives a universal Release build into Xcode's Archives folder. The version is `MARKETING_VERSION` from `Config/Shared.xcconfig`, or `--version`; the App Store takes no `-beta` suffix. The build number is the commit count, the same numbering the DMG uses, so each upload from a newer commit is accepted. Then, in Xcode, open Window > Organizer > Archives, select the archive and choose Distribute App > App Store Connect. Signing is automatic and uses the account in Xcode > Settings > Accounts, which has to be the Account Holder or an Admin to create the distribution certificates. The listing's privacy policy is https://thlick.com/privacy, served from `privacy.html` on the `gh-pages` branch.
+
 ## Debug tools
 
 Debug builds accept launch flags that need no screen recording permission. Run the binary inside the built app:
