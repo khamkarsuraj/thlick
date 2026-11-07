@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en" data-phosphor="amber" data-crt="on">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thlick privacy policy</title>
+  <meta name="description" content="Thlick collects no data. What the app does with key presses, the microphone and your settings.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <meta name="theme-color" content="#000000">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&display=swap">
+  <style>
+    /* The landing page's phosphor palettes and glass, so the two pages look the same. */
+    :root {
+      color-scheme: dark;
+      --bg: #000;
+      --mono: "VT323", "Menlo", "SF Mono", ui-monospace, monospace;
+      --ph: #ffb000;
+      --ph-dim: #8a5f00;
+      --ph-glow: rgba(255, 92, 5, 0.55);
+      --haze: rgba(153, 18, 61, 0.20);
+    }
+    :root[data-phosphor="green"] { --ph: #33ff33; --ph-dim: #1c8c1c; --ph-glow: rgba(0, 128, 56, 0.6); --haze: rgba(0, 92, 153, 0.16); }
+    :root[data-phosphor="white"] { --ph: #f4f4f4; --ph-dim: #8a8a8a; --ph-glow: rgba(82, 107, 242, 0.5); --haze: rgba(26, 41, 153, 0.16); }
+    :root[data-phosphor="blue"]  { --ph: #6eb8ff; --ph-dim: #3b6ea0; --ph-glow: rgba(31, 97, 255, 0.55); --haze: rgba(87, 26, 199, 0.18); }
+    :root[data-phosphor="cyan"]  { --ph: #54ffff; --ph-dim: #2a9696; --ph-glow: rgba(0, 97, 235, 0.55); --haze: rgba(143, 26, 168, 0.16); }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    html { background: var(--bg); }
+    body {
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 35%, var(--haze), transparent 70%),
+        var(--bg);
+      color: var(--ph);
+      font: 20px/1.35 var(--mono);
+      text-shadow: 0 0 1px var(--ph), 0 0 7px var(--ph-glow);
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--ph); outline-offset: 3px; }
+    ::selection { background: var(--ph); color: var(--bg); text-shadow: none; }
+
+    .crt::before, .crt::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+    .crt::before {
+      background: repeating-linear-gradient(0deg, transparent 0 2px, rgba(0, 0, 0, 0.26) 2px 3px);
+      mix-blend-mode: multiply;
+    }
+    .crt::after {
+      background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.62) 100%);
+    }
+    :root[data-crt="off"] .crt::before, :root[data-crt="off"] .crt::after { display: none; }
+    :root[data-crt="off"] body { text-shadow: none; }
+
+    .page > * { min-width: 0; }
+    .page {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 20px;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--ph-dim);
+      padding-bottom: 8px;
+    }
+    .bar .title { letter-spacing: 0.25em; text-decoration: none; }
+    .bar .title small { letter-spacing: 0.02em; opacity: 0.8; }
+    a.key { padding: 2px 4px; text-decoration: none; }
+    a.key:hover, a.key:focus-visible { background: var(--ph); color: var(--bg); text-shadow: none; outline: none; }
+
+    h1 {
+      font-size: clamp(28px, 4.6vw, 44px);
+      line-height: 1.15;
+      font-weight: 400;
+      margin: 6px 0 0;
+      text-shadow: 0 0 2px var(--ph), 0 0 14px var(--ph-glow);
+    }
+    .effective { margin: 4px 0 0; opacity: 0.85; }
+
+    .panel {
+      position: relative;
+      border: 2px solid var(--ph-dim);
+      padding: 22px 18px 18px;
+    }
+    .panel > h2 {
+      position: absolute;
+      top: -0.72em;
+      left: 12px;
+      margin: 0;
+      padding: 0 8px;
+      background: var(--bg);
+      font-size: inherit;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+    }
+    .panel > h2::before { content: "\2500 "; color: var(--ph-dim); }
+    .panel > h2::after { content: " \2500"; color: var(--ph-dim); }
+    .panel.primary { border-color: var(--ph); box-shadow: 0 0 18px var(--haze), inset 0 0 18px var(--haze); }
+
+    /* Policy text in normal case: a page of capitals is hard to read. */
+    .panel p, .panel li { text-transform: none; }
+    p { margin: 0 0 10px; max-width: 70ch; }
+    p:last-child { margin-bottom: 0; }
+    ul.plain { margin: 0 0 10px; padding: 0; list-style: none; }
+    ul.plain:last-child { margin-bottom: 0; }
+    ul.plain li { display: flex; gap: 12px; margin-bottom: 8px; max-width: 70ch; }
+    ul.plain li::before { content: "\25B8"; flex: none; opacity: 0.8; }
+    code { font: inherit; overflow-wrap: anywhere; }
+
+    footer {
+      border-top: 2px solid var(--ph-dim);
+      padding-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 24px;
+      justify-content: space-between;
+    }
+    footer nav { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+
+    @media (max-width: 560px) {
+      body { font-size: 18px; }
+      .panel { padding: 20px 14px 14px; }
+    }
+  </style>
+  <script>
+    // Use the phosphor colour and raster chosen on the landing page.
+    try {
+      const p = localStorage.getItem("phosphor");
+      if (["amber", "green", "white", "blue", "cyan"].includes(p)) document.documentElement.dataset.phosphor = p;
+      if (localStorage.getItem("crt") === "off") document.documentElement.dataset.crt = "off";
+    } catch (_) {}
+  </script>
+</head>
+<body>
+<div class="crt"></div>
+<main class="page">
+
+  <header class="bar">
+    <a class="title" href="./">T H L I C K <small>/ MECHANICAL KEYBOARD SOUNDS FOR MAC</small></a>
+    <a class="key" href="./">&larr; Home</a>
+  </header>
+
+  <section>
+    <h1>Privacy policy</h1>
+    <p class="effective">Effective 7 November 2026</p>
+  </section>
+
+  <section class="panel primary" aria-labelledby="short-title">
+    <h2 id="short-title">In short</h2>
+    <p>Thlick does not collect, store or share any personal data. It has no accounts, no analytics, no ads and no tracking, and it does not connect to the internet.</p>
+    <p>This policy covers the Thlick app for macOS, both the Mac App Store version and the download from this website, and this website.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="keys-title">
+    <h2 id="keys-title">What you type</h2>
+    <p>Thlick needs the Input Monitoring permission to notice key presses in other apps. Its key listener is listen-only, so it cannot change, block or add key presses.</p>
+    <p>For each key press, Thlick works out which kind of key it was (a letter or number, space, return, delete or a modifier key) and where that key sits on the keyboard drawn on screen. It uses that to play a sound and light up the key. It does not work out which character you typed, and nothing about your key presses is saved, logged or sent anywhere.</p>
+    <p>When you type in a password field, macOS turns on secure input and Thlick ignores your key presses completely.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="mic-title">
+    <h2 id="mic-title">Microphone</h2>
+    <p>To go quiet during calls, Thlick asks macOS whether another app is using the microphone. Thlick never uses the microphone itself, never hears or records any audio, and does not ask for microphone permission.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="apps-title">
+    <h2 id="apps-title">Other apps</h2>
+    <p>To honour your per-app exclusions, Thlick checks which app is in front. When you add an app to the list, Thlick keeps only that app's name and identifier.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="settings-title">
+    <h2 id="settings-title">Your settings</h2>
+    <p>Your settings, shortcuts and excluded apps are stored only on your Mac, in Thlick's own folder at <code>~/Library/Containers/com.surajkhamkar.thlick</code>. To remove them, delete the app and that folder. Nothing is stored anywhere else, so there is nothing for us to delete.</p>
+  </section>
+
+  <section class="panel" aria-labelledby="site-title">
+    <h2 id="site-title">This website</h2>
+    <ul class="plain">
+      <li><span>The site is hosted on GitHub Pages and loads its font from Google Fonts. As part of serving them, GitHub and Google receive your IP address, under their own privacy policies.</span></li>
+      <li><span>To find the newest version, the download button reads a file on this site, or asks GitHub if that fails.</span></li>
+      <li><span>Your phosphor colour and scanline choices are saved in your browser and never leave it. The site sets no cookies and runs no analytics.</span></li>
+    </ul>
+  </section>
+
+  <section class="panel" aria-labelledby="contact-title">
+    <h2 id="contact-title">Changes and contact</h2>
+    <p>If this policy changes, the new version will be posted on this page with a new date.</p>
+    <p>Thlick is made by Suraj Khamkar. For questions about privacy, open an issue at <a href="https://github.com/khamkarsuraj/thlick/issues">github.com/khamkarsuraj/thlick/issues</a>.</p>
+  </section>
+
+  <footer>
+    <nav aria-label="Links">
+      <a class="key" href="./">Home</a>
+      <a class="key" href="https://github.com/khamkarsuraj/thlick">Source on GitHub &#8599;</a>
+      <a class="key" href="https://github.com/khamkarsuraj/thlick/issues">Issues &#8599;</a>
+    </nav>
+    <div>Made for macOS 13+ &middot; Universal</div>
+  </footer>
+</main>
+</body>
+</html>
