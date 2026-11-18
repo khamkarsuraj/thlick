@@ -128,8 +128,8 @@ Reports go to `perf-results/`, which isn't committed since numbers depend on the
 **Audio path only.** No key presses needed:
 
 ```
-thlick.app/Contents/MacOS/thlick --latency-report 1
-thlick.app/Contents/MacOS/thlick --test-soundpacks 1
+Thlick.app/Contents/MacOS/Thlick --latency-report 1
+Thlick.app/Contents/MacOS/Thlick --test-soundpacks 1
 ```
 
 To compare IO buffer sizes, add `-ioBufferFrames 128` or any other size.
@@ -143,7 +143,7 @@ CPU must stay under 1% on average while idle and under 5% during sustained fast 
 Add the launch argument `-measureCPU YES`, either in Xcode (Product > Scheme > Edit Scheme > Run, with Build Configuration set to Release) or from Terminal:
 
 ```
-open thlick.app --args -measureCPU YES
+open Thlick.app --args -measureCPU YES
 ```
 
 Every 15 seconds the probe logs the app's average CPU, as a percentage of one core (the same scale as Activity Monitor). It splits the time into three parts. Typing is seconds with at least one key press, and the log also shows the typing rate. Settling is the first 5 seconds after the last key, while sounds and animations finish. Idle is everything after that. It skips the first 10 seconds after launch, and it counts key presses only, never which key was pressed. To watch the log outside Xcode:
@@ -161,7 +161,7 @@ The first key press must play within 1 second of launch, with every profile load
 Add the launch argument `-measureStartup YES`, or run the binary from Terminal:
 
 ```
-thlick.app/Contents/MacOS/thlick -measureStartup YES
+Thlick.app/Contents/MacOS/Thlick -measureStartup YES
 ```
 
 Each milestone prints the time since the kernel started the process, so dyld and framework loading count too: `sounds ready` (every pack decoded and pitch-rendered, engine running), `listener on` (the key tap is up, or why it isn't) and `menu bar icon up` (drawn on the first pass of the run loop). On an Apple silicon MacBook a Release build reports sounds ready at about 300 ms and the listener on about 50 ms later, so the first key can play with every pack loaded well inside the budget. The milestones also go to the unified log:
@@ -273,7 +273,7 @@ GitHub Pages serves the `gh-pages` branch, which also holds the landing page at 
 To package by hand, build a Developer ID signed app (Product > Archive in Xcode, then Distribute App > Direct Distribution > Export), store notarization credentials once with `xcrun notarytool store-credentials thlick`, and run:
 
 ```
-scripts/package_dmg.sh --app path/to/thlick.app --notary-profile thlick
+scripts/package_dmg.sh --app path/to/Thlick.app --notary-profile thlick
 ```
 
 Without a `--notary-profile` or `--notary-key` the script only signs the DMG, which is enough to check the image locally.
@@ -293,25 +293,25 @@ It archives a universal Release build into Xcode's Archives folder. The version 
 Debug builds accept launch flags that need no screen recording permission. Run the binary inside the built app:
 
 ```
-thlick.app/Contents/MacOS/thlick --snapshot <out.png> [--dark] [--section settings]
-thlick.app/Contents/MacOS/thlick --export-sounds <dir>
-thlick.app/Contents/MacOS/thlick --stress-sounds 300
-thlick.app/Contents/MacOS/thlick --test-shortcuts 1
-thlick.app/Contents/MacOS/thlick --test-keymap 1
-thlick.app/Contents/MacOS/thlick --latency-report 1
-thlick.app/Contents/MacOS/thlick --mic-report
-thlick.app/Contents/MacOS/thlick --mic-watch 60
+Thlick.app/Contents/MacOS/Thlick --snapshot <out.png> [--dark] [--section settings]
+Thlick.app/Contents/MacOS/Thlick --export-sounds <dir>
+Thlick.app/Contents/MacOS/Thlick --stress-sounds 300
+Thlick.app/Contents/MacOS/Thlick --test-shortcuts 1
+Thlick.app/Contents/MacOS/Thlick --test-keymap 1
+Thlick.app/Contents/MacOS/Thlick --latency-report 1
+Thlick.app/Contents/MacOS/Thlick --mic-report
+Thlick.app/Contents/MacOS/Thlick --mic-watch 60
 ```
 
 To render a single view to a PNG:
 
 ```
-thlick.app/Contents/MacOS/thlick --render-popover <out.png> [--popover-state off|muted|timed|automuted|paused] [--popover-profile <id>]
-thlick.app/Contents/MacOS/thlick --render-onboarding <out.png> [--onboarding-step welcome|permission|keyboard|finish]
-thlick.app/Contents/MacOS/thlick --render-settings <out.png> [--with-exclusions]
-thlick.app/Contents/MacOS/thlick --render-hud <out.png> [--hud-action toggleMute|toggleSound|nextKeyboard|volumeUp|…]
-thlick.app/Contents/MacOS/thlick --render-cheatsheet <out.png>
-thlick.app/Contents/MacOS/thlick --render-canvas <out.png>
+Thlick.app/Contents/MacOS/Thlick --render-popover <out.png> [--popover-state off|muted|timed|automuted|paused] [--popover-profile <id>]
+Thlick.app/Contents/MacOS/Thlick --render-onboarding <out.png> [--onboarding-step welcome|permission|keyboard|finish]
+Thlick.app/Contents/MacOS/Thlick --render-settings <out.png> [--with-exclusions]
+Thlick.app/Contents/MacOS/Thlick --render-hud <out.png> [--hud-action toggleMute|toggleSound|nextKeyboard|volumeUp|…]
+Thlick.app/Contents/MacOS/Thlick --render-cheatsheet <out.png>
+Thlick.app/Contents/MacOS/Thlick --render-canvas <out.png>
 ```
 
 Each accepts `--dark`.

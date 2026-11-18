@@ -113,8 +113,8 @@ jobs:
             -exportPath build/export \
             | tee -a xcodebuild.log \
             | grep -E 'error:|\*\* EXPORT'
-          app=build/export/thlick.app
-          binary=$app/Contents/MacOS/thlick
+          app=build/export/Thlick.app
+          binary=$app/Contents/MacOS/Thlick
           archs=$(lipo -archs "$binary")
           echo "Architectures: $archs"
           [[ " $archs " == *" arm64 "* && " $archs " == *" x86_64 "* ]] || { echo "::error::Not universal: $archs"; exit 1; }
@@ -132,7 +132,7 @@ jobs:
             || { echo "::error::Secrets NOTARY_KEY_ID, NOTARY_ISSUER_ID and NOTARY_KEY_BASE64 are all needed"; exit 1; }
           echo "$NOTARY_KEY_BASE64" | base64 --decode > "$RUNNER_TEMP/notary.p8"
           scripts/package_dmg.sh \
-            --app build/export/thlick.app \
+            --app build/export/Thlick.app \
             --out dist \
             --notary-key "$RUNNER_TEMP/notary.p8" \
             --notary-key-id "$NOTARY_KEY_ID" \

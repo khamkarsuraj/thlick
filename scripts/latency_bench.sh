@@ -36,7 +36,7 @@ done
 
 root="$(cd "$(dirname "$0")/.." && pwd)"
 derived="$root/build/latency"
-app="$derived/Build/Products/Release/thlick.app/Contents/MacOS/thlick"
+app="$derived/Build/Products/Release/Thlick.app/Contents/MacOS/Thlick"
 
 echo "Building Release…"
 mkdir -p "$derived"
