@@ -116,20 +116,32 @@ struct OnboardingTests {
         #expect(!harness.model.canSkip, "finish: the last button is right there")
     }
 
-    @Test func skippingFinishesWithTheLoginItemOn() {
+    @Test func skippingLeavesTheLoginItemAlone() {
         defer { UserDefaults().removePersistentDomain(forName: suiteName) }
         let harness = Harness(suiteName: suiteName, granted: false)
         harness.model.next()
         harness.model.skip()
         #expect(harness.state.hasCompletedOnboarding)
-        #expect(harness.loginItem == [true])
+        #expect(harness.loginItem.isEmpty, "never registered without asking")
     }
 
-    @Test func finishingTurnsOnTheLoginItem() {
+    @Test func finishingLeavesTheLoginItemOffUnlessAsked() {
+        defer { UserDefaults().removePersistentDomain(forName: suiteName) }
+        let harness = Harness(suiteName: suiteName, granted: true)
+        #expect(!harness.model.wantsLaunchAtLogin, "off by default")
+        harness.model.next()
+        harness.model.next()
+        harness.model.next()
+        #expect(harness.loginItem.isEmpty)
+        #expect(harness.state.hasCompletedOnboarding)
+    }
+
+    @Test func finishingTurnsOnTheLoginItemWhenAsked() {
         defer { UserDefaults().removePersistentDomain(forName: suiteName) }
         let harness = Harness(suiteName: suiteName, granted: true)
         harness.model.next()
         harness.model.next()
+        harness.model.wantsLaunchAtLogin = true
         #expect(harness.loginItem.isEmpty, "not before the last step")
         harness.model.next()
         #expect(harness.loginItem == [true])

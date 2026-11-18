@@ -14,6 +14,10 @@ final class OnboardingModel: ObservableObject {
 
     @Published private(set) var step: Step = .welcome
 
+    /// "Open Thlick at login" on the last step. Off until the user turns it on: the login
+    /// item is only ever registered with consent (App Store guideline 2.4.5(iii)).
+    @Published var wantsLaunchAtLogin = false
+
     private let appState: AppState
     /// Registers or removes the login item. Replaced in tests, which must not touch the real one.
     private let setLaunchAtLogin: (Bool) -> Void
@@ -65,10 +69,10 @@ final class OnboardingModel: ObservableObject {
         finish()
     }
 
-    /// Ends onboarding for good, finished or skipped, and turns on the login item, which is
-    /// on by default (FR-20); Settings can turn it off.
+    /// Ends onboarding for good, finished or skipped. The login item is registered only when
+    /// the user asked for it on the last step (FR-20); Settings can change it later.
     private func finish() {
-        setLaunchAtLogin(true)
+        if wantsLaunchAtLogin { setLaunchAtLogin(true) }
         appState.hasCompletedOnboarding = true
     }
 }
