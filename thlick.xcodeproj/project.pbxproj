@@ -17,10 +17,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		54BD06D83082FF310090AA18 /* thlick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thlick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54BD06D83082FF310090AA18 /* Thlick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thlick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BD080D308496B00090AA18 /* thlickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = thlickTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BD0A03308500000090AA18 /* AppStore.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = AppStore.xcconfig; sourceTree = "<group>"; };
-		54BD0A04308500000090AA18 /* thlick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = thlick.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54BD0A04308500000090AA18 /* Thlick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thlick.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		54BD0A02308500000090AA18 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,9 +75,9 @@
 		54BD06D93082FF310090AA18 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				54BD06D83082FF310090AA18 /* thlick.app */,
+				54BD06D83082FF310090AA18 /* Thlick.app */,
 				54BD080D308496B00090AA18 /* thlickTests.xctest */,
-				54BD0A04308500000090AA18 /* thlick.app */,
+				54BD0A04308500000090AA18 /* Thlick.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -113,7 +113,7 @@
 			packageProductDependencies = (
 			);
 			productName = thlick;
-			productReference = 54BD06D83082FF310090AA18 /* thlick.app */;
+			productReference = 54BD06D83082FF310090AA18 /* Thlick.app */;
 			productType = "com.apple.product-type.application";
 		};
 		54BD080C308496B00090AA18 /* thlickTests */ = {
@@ -158,7 +158,7 @@
 			packageProductDependencies = (
 			);
 			productName = thlick;
-			productReference = 54BD0A04308500000090AA18 /* thlick.app */;
+			productReference = 54BD0A04308500000090AA18 /* Thlick.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -412,7 +412,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/thlick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/thlick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thlick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Thlick";
 			};
 			name = Debug;
 		};
@@ -433,7 +433,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/thlick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/thlick";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Thlick.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Thlick";
 			};
 			name = Release;
 		};

@@ -19,7 +19,11 @@ INFOPLIST_KEY_NSHumanReadableCopyright =
 LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
 MARKETING_VERSION = 1.0
 PRODUCT_BUNDLE_IDENTIFIER = com.surajkhamkar.thlick
-PRODUCT_NAME = thlick
+// The bundle is Thlick.app and the executable Thlick, which is what Finder, the Dock and
+// permission dialogs show. The Swift module stays `thlick` so `@testable import thlick`
+// and the bundle identifier are unchanged.
+PRODUCT_NAME = Thlick
+PRODUCT_MODULE_NAME = thlick
 REGISTER_APP_GROUPS = YES
 STRING_CATALOG_GENERATE_SYMBOLS = YES
 SWIFT_APPROACHABLE_CONCURRENCY = YES

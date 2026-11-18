@@ -61,13 +61,13 @@ xcodebuild archive \
   | grep -E 'error:|warning:|\*\* (ARCHIVE|BUILD)' \
   || fail "the archive failed; the full log is in $log"
 
-app="$archive/Products/Applications/thlick.app"
+app="$archive/Products/Applications/Thlick.app"
 [[ -d $app ]] || fail "no app in $archive; the full log is in $log"
 plist="$app/Contents/Info.plist"
 echo "Version:      $(plutil -extract CFBundleShortVersionString raw -o - "$plist")"
 echo "Build:        $(plutil -extract CFBundleVersion raw -o - "$plist")"
 echo "Category:     $(plutil -extract LSApplicationCategoryType raw -o - "$plist")"
-echo "Architectures: $(lipo -archs "$app/Contents/MacOS/thlick")"
+echo "Architectures: $(lipo -archs "$app/Contents/MacOS/Thlick")"
 echo
 echo "Next: in Xcode, Window > Organizer > Archives, select this archive and choose"
 echo "Distribute App > App Store Connect."

@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "54BD0A05308500000090AA18"
-               BuildableName = "thlick.app"
+               BuildableName = "Thlick.app"
                BlueprintName = "thlick App Store"
                ReferencedContainer = "container:thlick.xcodeproj">
             </BuildableReference>
@@ -44,7 +44,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54BD0A05308500000090AA18"
-            BuildableName = "thlick.app"
+            BuildableName = "Thlick.app"
             BlueprintName = "thlick App Store"
             ReferencedContainer = "container:thlick.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "54BD0A05308500000090AA18"
-            BuildableName = "thlick.app"
+            BuildableName = "Thlick.app"
             BlueprintName = "thlick App Store"
             ReferencedContainer = "container:thlick.xcodeproj">
          </BuildableReference>

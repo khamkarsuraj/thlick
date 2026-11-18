@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Packages a built thlick.app into a signed, notarized DMG (issue #45).
+# Packages a built Thlick.app into a signed, notarized DMG (issue #45).
 #
 # Makes Thlick-<version>.dmg with an Applications shortcut and signs it with the
 # Developer ID Application certificate. With notarization credentials it first notarizes
@@ -9,7 +9,7 @@
 # ID and the hardened runtime, as the release workflow's archive step does.
 #
 # Usage:
-#   scripts/package_dmg.sh --app PATH/thlick.app [--out DIR] [--identity NAME]
+#   scripts/package_dmg.sh --app PATH/Thlick.app [--out DIR] [--identity NAME]
 #       [--notary-profile NAME | --notary-key FILE --notary-key-id ID --notary-issuer ID]
 #
 #   --app PATH           the built, Developer ID signed app (required)

@@ -75,7 +75,7 @@ jobs:
             ASSETCATALOG_COMPILER_APPICON_NAME= \
             | tee -a xcodebuild.log \
             | grep -E 'error:|\*\* BUILD'
-          binary=build/universal/Build/Products/Release/thlick.app/Contents/MacOS/thlick
+          binary=build/universal/Build/Products/Release/Thlick.app/Contents/MacOS/Thlick
           archs=$(lipo -archs "$binary")
           echo "Architectures: $archs"
           [[ " $archs " == *" arm64 "* && " $archs " == *" x86_64 "* ]] || { echo "::error::Not universal: $archs"; exit 1; }
