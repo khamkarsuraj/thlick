@@ -179,6 +179,10 @@ struct OnboardingView: View {
                     .frame(maxWidth: 400)
             }
             .padding(.top, 8)
+            // Off until asked: the login item needs the user's OK (FR-20).
+            Toggle("Open Thlick at login", isOn: $model.wantsLaunchAtLogin)
+                .toggleStyle(.checkbox)
+                .padding(.top, 12)
         }
         .padding(.horizontal, 64)
     }
